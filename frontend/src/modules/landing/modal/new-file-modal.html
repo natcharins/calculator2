@@ -1,0 +1,23 @@
+<div class="modal" id="newFileModal">
+	<div class="modal-background"></div>
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<p class="modal-card-title">Create new file</p>
+			<button class="delete" aria-label="close" ng-click="vm.cancel('#newFileModal')"></button>
+		</header>
+		<section class="modal-card-body">
+			<div class="field">
+				<label for="name" class="label">File Name</label>
+				<div class="control">
+					<input name="name" class="input" type="text" placeholder="Your file name" ng-model="vm.file.filename">
+				</div>
+			</div>
+			<div class="columns">
+				<div class="column has-text-right">
+					<button class="button is-info" ng-click="vm.saveCloud()">Save</button>
+					<button class="button" ng-click="vm.cancel('#newFileModal')">Cancel</button>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>

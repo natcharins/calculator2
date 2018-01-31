@@ -1,0 +1,21 @@
+<div class="modal" id="errorModal">
+	<div class="modal-background"></div>
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<p class="modal-card-title">Error</p>
+			<button class="delete" aria-label="close" ng-click="vm.cancel('#errorModal')"></button>
+		</header>
+		<section class="modal-card-body">
+			<div class="columns">
+				<div class="column">
+					<p>Please complete the form before saving</p>
+				</div>
+			</div>
+			<div class="columns">
+				<div class="column has-text-right">
+					<button class="button" ng-click="vm.cancel('#errorModal')">Cancel</button>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>

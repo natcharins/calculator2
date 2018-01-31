@@ -1,0 +1,23 @@
+<div class="modal" id="newAccountModal">
+	<div class="modal-background"></div>
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<p class="modal-card-title">Create new accounts</p>
+			<button class="delete" aria-label="close" ng-click="vm.cancel('#newAccountModal')"></button>
+		</header>
+		<section class="modal-card-body">
+			<div class="field">
+				<label for="name" class="label">Name</label>
+				<div class="control">
+					<input name="name" class="input" type="text" placeholder="Your name" ng-model="vm.account.name">
+				</div>
+			</div>
+			<div class="columns">
+				<div class="column has-text-right">
+					<button class="button is-info" ng-click="vm.createNewAccount()">Create</button>
+					<button class="button" ng-click="vm.cancel('#newAccountModal')">Cancel</button>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>

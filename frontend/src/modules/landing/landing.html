@@ -1,0 +1,78 @@
+<section class="section">
+	<div class="container">
+		<h1 class="title is-1">Calculator</h1>
+		<p class="subtitle is-3">Put number in the field and select operator to calculate</p>
+
+		<form name="calForm">
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<div class="field">
+						<label for="input1" class="label">Input 1</label>
+						<div class="control">
+							<input name="input1" type="number" class="input" placeholder="Input 1" ng-model="vm.input[0]" ng-change="vm.cal()">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<div class="field">
+						<label for="input2" class="label">Input 2</label>
+						<div class="control"></div>
+						<input name="input2" type="number" class="input" placeholder="Input 2" ng-model="vm.input[1]" ng-change="vm.cal()">
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="columns is-mobile is-centered">
+		<div class="column is-half">
+			<center>
+				<button class="button operator is-primary" ng-class="vm.checkOperator('plus')" ng-click="vm.data.operator = 'plus'; vm.cal()">+</button>
+				<button class="button operator is-link" ng-class="vm.checkOperator('minus')" ng-click="vm.data.operator = 'minus'; vm.cal()">-</button>
+				<button class="button operator is-info" ng-class="vm.checkOperator('multiply')" ng-click="vm.data.operator = 'multiply'; vm.cal()">x</button>
+				<button class="button operator is-success" ng-class="vm.checkOperator('divide')" ng-click="vm.data.operator = 'divide'; vm.cal()">/</button>
+				<button class="button operator is-primary" ng-class="vm.checkOperator('power')" ng-click="vm.data.operator = 'power'; vm.cal()">ⁿ</button>
+			</center>
+		</div>
+	</div>
+	<div class="columns is-mobile is-centered">
+		<div class="column is-half">
+			<div class="field is-horizontal">
+				<div class="field-label is-large">
+					<label for="result" class="label">Result</label>
+				</div>
+				<div class="field-body">
+					<div class="field">
+						<div class="control">
+							<input name="result" class="input is-large" type="text" placeholder="Result" ng-model="vm.data.result" readonly>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="columns is-mobile is-centered">
+		<div class="column is-half">
+			<center>
+				<input id="cloud" type="checkbox" ng-model="vm.googleCloud" /> Google Cloud
+			</center>
+		</div>
+	</div>
+	<div class="columns is-mobile is-centered">
+		<div class="column is-half">
+			<center>
+				<input id="file" type="file" read-file style="display: none" />
+				<button class="button is-warning" ng-click="vm.checkLoad()">Load</button>
+				<button class="button is-danger" ng-click="vm.checkSave()">Save</button>
+			</center>
+		</div>
+	</div>
+	</form>
+	</div>
+</section>
+
+<div ng-include="'./src/modules/landing/modal/account-modal.html'"></div>
+<div ng-include="'./src/modules/landing/modal/new-account-modal.html'"></div>
+<div ng-include="'./src/modules/landing/modal/new-file-modal.html'"></div>
+<div ng-include="'./src/modules/landing/modal/load-file-modal.html'"></div>
+<div ng-include="'./src/modules/landing/modal/error-modal.html'"></div>

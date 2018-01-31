@@ -1,0 +1,16 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Natcharin Sukcharoensub",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server/server"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "^1.3.3",
+    "express": "^4.16.2",
+    "http-proxy-middleware": "^0.17.4",
+    "npm": "^5.6.0"
+  }
+}
