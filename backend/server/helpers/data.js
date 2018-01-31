@@ -28,9 +28,7 @@ function toDatastore(obj, nonIndexed) {
 }
 
 function list(id, cb) {
-	const q = datastore.createQuery([kind]).filter("ownerId", "=", id).order('priority', {
-		descending: true,
-	});
+	const q = datastore.createQuery([kind]).filter("ownerId", "=", id);
 
 	datastore.runQuery(q, (err, entities) => {
 		if (err) {

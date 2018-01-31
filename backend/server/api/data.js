@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 
 // get all data
 app.get("/api/data", (req, res, next) => {
-	let id = Number(req.query.id);
+	let id = req.query.id;
 	getModel().list(id, (err, entities) => {
 		if (err) {
 			next(err);
