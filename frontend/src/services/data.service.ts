@@ -16,7 +16,7 @@ export default class DataService {
 
 	}
 
-	public getAllData(ownerId: string) {
+	public getAllData(ownerId: number) {
 		return this.$http.get(this._getAllData, {params: {id: ownerId}}).then((response: any) => {
 			return this.$q.when(response.data);
 		}, (reason: any) => {

@@ -4,7 +4,7 @@ export class File {
 
 	public id: number;
 	public filename: string;
-    public ownerId: string;
+    public ownerId: number;
     public data: Calculator;
 	
 	constructor(object?: File) {

@@ -17,4 +17,4 @@ typings
 .sonarlint
 coverage
 docs
-calculator*
+calculator-win32-x64

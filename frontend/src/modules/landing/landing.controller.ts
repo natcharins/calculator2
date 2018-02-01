@@ -17,7 +17,7 @@ export default class LandingController {
     public googleCloud: boolean = false;
     public method: string;
 
-    private ownerId: string;
+    private ownerId: number;
 
     constructor(private accountService: AccountService, private dataService: DataService) {
         this.data = new Calculator();
@@ -66,8 +66,8 @@ export default class LandingController {
         return this.googleCloud ? this.openAccountList() : this.loadLocal();
     }
 
-    public checkMethod(id: string) {
-        this.ownerId = id;
+    public checkMethod(id: number) {
+        this.ownerId = Number(id);
         this.method === "save" ? this.openModal("#newFileModal") : this.getFilesByAccount();
     }
 
