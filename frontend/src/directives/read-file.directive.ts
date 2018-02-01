@@ -19,6 +19,7 @@ export function ReadFile() {
 					scope.$apply(() => {
 						scope.vm.data = JSON.parse(onLoadEvent.target.result);
 						scope.vm.input = scope.vm.data.input;
+						element.val(null);
 					});
 				};
 
