@@ -22,7 +22,6 @@ let _dependencies: Array<string> = [
         let $http = initInjector.get("$http");
 
         // Read application config from external json file
-        console.log(commonLib.getConfigPath);
         return $http.get(commonLib.getConfigPath).then((response) => {
             let constant = generateConstant(response.data);
 

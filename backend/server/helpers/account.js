@@ -65,26 +65,8 @@ function create(data, cb) {
 	update(null, data, cb);
 }
 
-function read(id, cb) {
-	const key = datastore.key([kind, parseInt(id, 10)]);
-	datastore.get(key, (err, entity) => {
-		if (!err && !entity) {
-			err = {
-				code: 404,
-				message: 'Not found'
-			};
-		}
-		if (err) {
-			cb(err);
-			return;
-		}
-		cb(null, fromDatastore(entity));
-	});
-}
-
 module.exports = {
 	create,
-	read,
 	update,
 	list
 };
