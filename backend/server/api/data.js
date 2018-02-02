@@ -1,10 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const Helpers = require('./../helpers/helpers');
 
-function getModel() {
-	return require('./../helpers/data');
-}
+let helpers = Helpers.getInstance("Data");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -14,7 +13,7 @@ app.use(bodyParser.urlencoded({
 // get all data
 app.get("/api/data", (req, res, next) => {
 	let id = req.query.id;
-	getModel().list(id, (err, entities) => {
+	helpers.listById(id, (err, entities) => {
 		if (err) {
 			next(err);
 			return;
@@ -25,7 +24,7 @@ app.get("/api/data", (req, res, next) => {
 // create new data
 app.post("/api/data", (req, res, next) => {
 	const data = req.body;
-	getModel().create(data, (err, entities) => {
+	helpers.create(data, (err, entities) => {
 		if (err) {
 			next(err);
 			return;
@@ -36,7 +35,7 @@ app.post("/api/data", (req, res, next) => {
 // update data
 app.post("/api/data/update", (req, res, next) => {
 	const data = req.body;
-	getModel().update(data.id, data, (err, entities) => {
+	helpers.update(data.id, data, (err, entities) => {
 		if (err) {
 			next(err);
 			return;

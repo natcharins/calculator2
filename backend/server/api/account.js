@@ -1,10 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const Helpers = require('./../helpers/helpers');
 
-function getModel() {
-	return require('./../helpers/account');
-}
+let helpers = Helpers.getInstance("Account");
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 
 // get all account
 app.get("/api/accounts", (req, res, next) => {
-	getModel().list((err, entities) => {
+	helpers.list((err, entities) => {
 		if (err) {
 			next(err);
 			return;
@@ -24,7 +24,7 @@ app.get("/api/accounts", (req, res, next) => {
 // create new account
 app.post("/api/account", (req, res, next) => {
 	const data = req.body;
-	getModel().create(data, (err, entities) => {
+	helpers.create(data, (err, entities) => {
 		if (err) {
 			next(err);
 			return;
@@ -35,7 +35,7 @@ app.post("/api/account", (req, res, next) => {
 // update account
 app.post("/api/account/update", (req, res, next) => {
 	const data = req.body;
-	getModel().update(data.id, data, (err, entities) => {
+	helpers.update(data.id, data, (err, entities) => {
 		if (err) {
 			next(err);
 			return;
